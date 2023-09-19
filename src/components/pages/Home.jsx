@@ -7,6 +7,8 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 import logo from "../../images/logo.svg";
 
+import styles from "./Home.module.css";
+
 export default function Home() {
   const navigate = useNavigate();
 
@@ -31,11 +33,11 @@ export default function Home() {
   return isLoading ? (
     <AppLoading />
   ) : (
-    <div className="home center">
-      <div className="home__logo">
+    <div className={`${styles.home} center`}>
+      <div className={styles.logo}>
         <img src={logo} className="responsive" alt="" />
       </div>
-      <select onChange={handleUserChange} className="home__select-users">
+      <select onChange={handleUserChange} className={styles.homeSelectUsers}>
         <option value="">Selecione un usuário</option>
         {users
           .sort((a, b) => a.fn.localeCompare(b.fn))
