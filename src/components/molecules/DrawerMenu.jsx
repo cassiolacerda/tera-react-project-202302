@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Drawer from "@mui/material/Drawer";
 import { Link } from "react-router-dom";
 import { List, ListItem } from "@mui/material";
 
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
 export default function DrawerMenu(props) {
+  const { currentUser } = useContext(CurrentUserContext);
+
   return (
     <Drawer
       anchor="right"
@@ -18,7 +22,7 @@ export default function DrawerMenu(props) {
           <Link to="/users">Usuários</Link>
         </ListItem>
         <ListItem>
-          <Link to="/users/1/post">Criar post</Link>
+          <Link to={`/users/${currentUser}/post`}>Criar post</Link>
         </ListItem>
       </List>
     </Drawer>
